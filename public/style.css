@@ -1,0 +1,10 @@
+.container{
+    display: center;
+}
+
+.h1{
+    display: flexbox;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+}
