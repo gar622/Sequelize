@@ -1,10 +1,34 @@
+body {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+        
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    background: cornflowerblue;
+    color: #fff;
+  }
+
 .container{
-    display: center;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .h1{
-    display: flexbox;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center; 
-    flex-direction: column;
+    font-family: 'Poppins', serif;
 }
