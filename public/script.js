@@ -19,19 +19,19 @@ async function getData(){
         </article>`;
         
     });
- }
+ 
 
 async function getDining(){
     console.log('data request');
-    const diningRequest = await fetch ('/api/meals');
+    const diningRequest = await fetch ('/api/dining');
     const diningData = await diningRequest.json();
     return diningData;
 }
-
+}
 
 
 async function windowActions(){
-    console.log('data');
+    console.log('data request');
     const data = await getData();
     console.table(data);
 }

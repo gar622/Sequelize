@@ -18,3 +18,4 @@ export default (database, DataTypes) => {
   );
   return DiningHall;
 };
+
