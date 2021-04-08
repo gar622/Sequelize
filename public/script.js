@@ -1,4 +1,4 @@
-async function getData(){
+async function populateRestaurants(){
     console.log('data request');
     const diningRequest = await fetch('/api/dining')
     const diningData = await diningRequest.json();
@@ -17,9 +17,9 @@ async function getData(){
         <span class = "has-text-light">
         ${restaurant.hall_address.split(",")[1]}</span>
         </article>`;
-        
+        targetBox.append(appendItem)
     });
- 
+} 
 
 async function getDining(){
     console.log('data request');
@@ -27,13 +27,24 @@ async function getDining(){
     const diningData = await diningRequest.json();
     return diningData;
 }
+
+async function getMeals(){
+    console.log('data request');
+    const mealRequest = await fetch ('/api/meals');
+    const mealData = await mealRequest.json();
+    return mealData;
 }
+
 
 
 async function windowActions(){
     console.log('data request');
-    const data = await getData();
+    const data = await getDining();
     console.table(data);
+
+    const meals = await getMeals();
+    console.table(meals);
+
 }
 
 window.onload = windowActions;

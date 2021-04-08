@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(staticFolder));
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
 app.use('/api', apiRoutes);
 
 async function bootServer() {
