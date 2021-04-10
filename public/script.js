@@ -90,12 +90,31 @@ const chart = new CanvasJS.Chart("chartContainer",{
     data: [{
         type: "stackedBar",
         showInLegend: true, 
-        dataStack: dataStack,
-	}]
+        dataStack: [
+            {x:meals, label: "Meal ID"},
+            {x:meals, label: "Meal Name"},
+            {x:meals, label: "Meal Category"}
+        ]
+    },
+        {
+            type: "stackedBar",
+            showInLegend: true, 
+            dataStack: [
+                {y:maccyDataTime, label: "Macro Id"},
+                {y:maccyDataTime, label: "Calories"},
+                {y:maccyDataTime, label: "Serving Size"},
+                {y:maccyDataTime, label: "Cholesterol"},
+                {y:maccyDataTime, label: "Sodium"},
+                {y:maccyDataTime, label: "Carbs"},
+                {y:maccyDataTime, label: "Protein"},
+                {y:maccyDataTime, label: "Fat"},
+            ]
+        }
+	]
 });
 async function testBaby(data) {  
 	$.each(data, function(key, value){
-		dataStack.push({x: value[0], y: parseInt(value[1])});
+		dataStack.push({x: value[0], y: parseInt(value[11])});
 	});	
 chart.render();
 };
