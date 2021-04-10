@@ -86,6 +86,28 @@ router.put("/dining", async (req, res) => {
 /// /////////////////////////////////
 /// ////////Meals Endpoints//////////
 /// /////////////////////////////////
+router.route('/wholeMeal') 
+.get(async(req,res) => {
+  try {
+    const meals = await db.Meals.findAll();
+    const macros = await db.Macros.findAll();
+    const wholeMeals = meals.map((meal) => {
+      const macroEntry = macros.find((macro) => macro.meal_id === meal.meal_id);
+      console.log('meal', meal.dataValues)
+      console.log('macroEntry', macroEntry.dataValues);
+
+      return{
+        ...meal.dataValues,
+        ...macroEntry.dataValues
+      };
+    });
+    res.json({data: wholeMeals});
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+})
+
 router.get("/meals", async (req, res) => {
   try {
     const meals = await db.Meals.findAll();
@@ -209,6 +231,16 @@ router.get("/restrictions/:restriction_id", async (req, res) => {
   } catch (err) {
     console.error(err);
     gi;
+    res.error("Server error");
+  }
+});
+
+router.get("/staticFolder", async (req, res) => {
+  try {
+    const staticFold = await db.indec.findAll();
+    res.send(staticFold);
+  } catch (err) {
+    console.error(err);
     res.error("Server error");
   }
 });
